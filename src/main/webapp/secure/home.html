@@ -6,13 +6,51 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/img/favicon.png">
 </head>
 <body>
-    <nav>
-        <a href="/secure/user-list">Listar Usuarios</a>
-        <a href="/secure/users.html">Listar Usuarios - AJAX</a>
-        <a href="/logout.do">Logout</a>
-    </nav>
-    <h1>Home</h1>
+<script>
+    function loadOrigamis() {
+
+        var x = document.getElementById("list");
+        var y = document.getElementById("ajax-example");
+        y.remove();
+        var z = document.createElement("ul");
+        z.setAttribute('id',"ajax-example");
+        x.appendChild(z);
+
+        var a = document.getElementById("difficulty_id").value;
+        var b = document.getElementById("category_id").value;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let origamis = JSON.parse(this.response);
+
+                let root = document.getElementById("ajax-example");
+                for (const origami of origamis) {
+                    if ((origami.difficulty == a || a=="All") && (origami.category == b || b=="All")) {
+                        var li = document.createElement("li");
+                        li.setAttribute('id',origami.title);
+                        li.appendChild(document.createTextNode(origami.title + ", " + origami.difficulty + ", " +  origami.category));
+                        root.appendChild(li);
+                    }
+                }
+            }
+        };
+        xhttp.open("GET", "/secure/origami", true);
+        xhttp.send();
+    }
+
+</script>
+<img id="banner" src="/img/logo2.png" alt="" height="80" style="display: block;">
+<div id="logout"><a href="/logout.do">Logout</a></div>
+<h1>Home</h1>
+<div id="cases">
+    <a href="/secure/uploadOrigami.html">Create Post</a>
+    <br>
+    <a href="/secure/search.html">List Origami</a>
+</div>
 </body>
 </html>

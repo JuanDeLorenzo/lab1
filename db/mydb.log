@@ -1,0 +1,152 @@
+/*C5*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C6*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C7*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO LOB_IDS VALUES(9,36005,0,30)
+ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 10
+COMMIT
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=9
+INSERT INTO BLOCKS VALUES(9,2,0)
+INSERT INTO BLOCKS VALUES(11,2147483636,0)
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=9
+INSERT INTO LOBS VALUES(9,2,0,9)
+COMMIT
+INSERT INTO LOB_IDS VALUES(10,13546,0,30)
+ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 11
+COMMIT
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=11
+INSERT INTO BLOCKS VALUES(11,1,0)
+INSERT INTO BLOCKS VALUES(12,2147483635,0)
+DELETE FROM BLOCKS WHERE BLOCK_ADDR=11
+INSERT INTO LOBS VALUES(11,1,0,10)
+COMMIT
+/*C7*/INSERT INTO ORIGAMI VALUES(11,'Others','1231','Medium','Flor')
+INSERT INTO IMAGE VALUES(7,9,NULL)
+INSERT INTO IMAGE VALUES(8,10,NULL)
+INSERT INTO ORIGAMI_IMAGE VALUES(11,7)
+INSERT INTO ORIGAMI_IMAGE VALUES(11,8)
+SET SCHEMA SYSTEM_LOBS
+DELETE FROM LOB_IDS WHERE LOB_ID=9
+INSERT INTO LOB_IDS VALUES(9,36005,1,30)
+DELETE FROM LOB_IDS WHERE LOB_ID=10
+INSERT INTO LOB_IDS VALUES(10,13546,1,30)
+COMMIT
+SET SCHEMA PUBLIC
+DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C10*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+alter table Event_Origami drop constraint UK_mcjwgtwjflnkw261y3hame3yt
+alter table Event_Origami add constraint UK_mcjwgtwjflnkw261y3hame3yt unique (origamis_id)
+alter table Event_User drop constraint UK_ciivlfc6q955flqmftiq6fht4
+alter table Event_User add constraint UK_ciivlfc6q955flqmftiq6fht4 unique (users_id)
+alter table Origami_Image drop constraint UK_24dhdnh5awsorc33sg98v8wni
+alter table Origami_Image add constraint UK_24dhdnh5awsorc33sg98v8wni unique (images_id)

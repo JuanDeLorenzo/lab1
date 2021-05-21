@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Upload Origami</title>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <script>
+		function showDataDetails() {
+			var p = document.getElementById("selected_filename");
+			p.innerHTML = "";
+			var images = document.createElement("ul");
+			var table = document.createElement("table");
+			table.align = "center";
+			for (const file of document.getElementById("upload_file").files) {
+				insertRow(table, file);
+				addImage(images, file);
+			}
+			p.appendChild(table);
+			p.appendChild(images);
+		}
+
+		function showDataPreview() {
+			let file = document.getElementById("upload_preview").files[0];
+			let p = document.getElementById("selected_prewiew");
+			p.innerHTML = file.name + " " + showSize(file.size);
+			p.appendChild(document.createElement('br'));
+			addImage(p, file);
+		}
+
+		function showSize(b) {
+			if (b<1024) {return b + "B";}
+			let k = Math.round(b/1024);
+			if (k<1024) {return k + "KB";}
+			return Math.round(k/1024) + "MB";
+		}
+
+		function insertRow(t, f) {
+			let tr = document.createElement("tr");
+			let td1 = document.createElement("td");
+			let td2 = document.createElement("td");
+			td1.appendChild(document.createTextNode(f.name)); td1.align = "left";
+			td2.appendChild(document.createTextNode(showSize(f.size))); td2.align = "left";
+			tr.appendChild(td1); tr.appendChild(td2); t.appendChild(tr);
+		}
+
+		function addImage(t, f) {
+			let img = document.createElement('img');
+			img.src = URL.createObjectURL(f);
+			img.setAttribute('class', "previewer");
+			t.appendChild(img);
+		}
+	</script>
+</head>
+<body>
+	<img id="banner" src="/img/logo2.png" alt="" height="80" style="display: block;">
+    <div id="logout"><a href="/logout.do">Logout</a></div>
+    <h1>Upload Origami Official</h1>
+	<p>Upload your new creations!</p>
+	<form method="post" action="/upload.do" enctype="multipart/form-data">
+		<input id="title_id" type="text" name="title" placeholder="Title" required><br>
+		<br><table align="center">
+			<tr>
+				<td class="label">Difficulty:</td>
+				<td class="options">
+					<select id="difficulty_id" name="difficulty">
+						<option value="Easy">Easy</option>
+						<option value="Medium" selected>Medium</option>
+						<option value="Hard">Hard</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">Categoty:</td>
+				<td class="options">
+					<select id="category_id" name="category">
+						<option value="Animal">Animal</option>
+						<option value="Flower">Flower</option>
+						<option value="Star">Star</option>
+						<option value="Vehicles">Vehicles</option>
+						<option value="Others" selected>Others</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">Type:</td>
+				<td class="options">
+					<select id="type_id" name="type">
+						<option value="Common" selected>Common</option>
+						<option value="Action">Action</option>
+						<option value="Modular">Modular</option>
+						<option value="WetFolding">Wet-Folding</option>
+						<option value="Pureland">Pureland</option>
+						<option value="Tessellation">Tessellations</option>
+						<option value="Kirigami">Kirigami</option>
+						<option value="StripFolding">Strip Folding</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">Estimated Time</td>
+				<td class="options">
+					<input type="number" name="time" min="1" style="width: 32px;" required>
+					<select id="time_id" name="m">
+						<option value="Minutes" selected>Minutes</option>
+						<option value="Hours">Hours</option>
+						<option value="Days">Days</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br><textarea name="details" rows="6" cols="80" placeholder="Write details..." required></textarea><br>
+		<br><label for="upload_preview">Preview Image:</label>
+		<span id="selected_prewiew" style="display: block;"> No file selected.</span>
+		<input onchange="showDataPreview()" id="upload_preview" type="file" name="file_preview" accept=".png, .jpg, .jpeg" required>
+		<br><label for="upload_file">Details Image(s):</label>
+		<br><span id="selected_filename" style="display: block;">No file(s) selected.</span>
+		<input onchange="showDataDetails()" id="upload_file" type="file" name="file" accept=".png, .jpg, .jpeg" multiple required><br>
+		<button type="submit">Upload</button>
+	</form>
+</body>
+</html>

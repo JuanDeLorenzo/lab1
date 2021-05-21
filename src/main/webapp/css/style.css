@@ -1,0 +1,102 @@
+html {
+	font-family: verdana, arial;
+	text-align: center;
+}
+
+#front {
+	margin-top: 5%;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: grey;
+	font-size: 18px;
+	text-decoration: none;
+	line-height: 72px;
+}
+
+h1 {
+	color: grey;
+	text-align: center;
+}
+
+.form-group {
+	color: grey;
+	font-size: 18px;
+	line-height: 32px;
+}
+
+button {
+	color: grey;
+	font-size: 24px;
+	margin-top: 16px;
+	background-color: white;
+	border: none;
+}
+
+p {
+	color: black;
+	font-size: 12px;
+}
+
+#logout {
+	margin-top: -80px;
+	margin-right: 40px;
+	text-align: right;
+}
+
+#cases {
+	text-align: center;
+}
+
+.form-group select {
+	width: 200px;
+	text-align: center;
+}
+
+input {
+	width: 400px;
+}
+
+#searching {
+	text-align: center;
+	visibility: show;
+}
+
+
+.label {
+	text-align: right;
+}
+
+.options {
+	text-align: left;
+}
+
+.options input {
+	width: 240px;
+}
+
+label {
+	cursor: pointer;
+}
+
+#upload_file {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+#upload_preview {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.previewer {
+	max-height: 160px;
+	max-width: 160px;
+}

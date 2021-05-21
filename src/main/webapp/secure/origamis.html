@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+<script>
+    function loadOrigamis() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                let origamis = JSON.parse(this.response);
+
+                let root = document.getElementById("ajax-example");
+                for (const origami of origamis) {
+                    var li = document.createElement("li");
+                    li.setAttribute('id',origami.title);
+                    li.appendChild(document.createTextNode(origami.title + ", " + origami.difficulty + ", " + origami.category));
+                    root.appendChild(li);
+                }
+            }
+        };
+        xhttp.open("GET", "/secure/origami", true);
+        xhttp.send();
+    }
+
+</script>
+
+<h1>Origamis</h1>
+<button onclick="loadOrigamis()">Fetch origamis</button>
+<div>
+    <ul id="ajax-example"></ul>
+</div>
+
+</body>
+</html>

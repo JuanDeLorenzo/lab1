@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    <script>
+        function loadOrigamis() {
+
+            var x = document.getElementById("list");
+            var y = document.getElementById("results");
+            y.remove();
+            var z = document.createElement("ul");
+            z.setAttribute('id',"results");
+            x.appendChild(z);
+
+            var formData = new FormData();
+            formData.append("difficulty", document.getElementById("difficulty_id").value);
+            formData.append("category", document.getElementById("category_id").value);
+            formData.append("type", document.getElementById("type_id").value);
+            formData.append("title", document.getElementById("title_pattern").value);
+
+            var parameters = "?title="+document.getElementById("title_pattern").value+"&type="+document.getElementById("type_id").value+"&category="+document.getElementById("difficulty_id").value+"&difficulty="+document.getElementById("difficulty_id").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    let origamis = JSON.parse(this.response);
+                    let root = document.getElementById("results");
+                    for (const origami of origamis) {
+                        var li = document.createElement("li");
+                        li.setAttribute('id',origami.title);
+                        li.appendChild(document.createTextNode(origami.title + ", " + origami.difficulty + ", " +  origami.category));
+                        root.appendChild(li);
+                    }
+                }
+            };
+            xhttp.open("GET", "/secure/origami"+parameters, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+<img id="banner" src="/img/logo2.png" alt="" height="80" style="display: block;">
+<div id="logout"><a href="/logout.do">Logout</a></div>
+<h1>Search Origami</h1>
+<p>Look for the Origami that you want to make!</p>
+<div id="searching" align="center">
+    <a>  Title:</a>
+    <input type="text" name="title" id="title_pattern" style="width: 240px;">
+    <a>  Difficulty:</a>
+    <select id="difficulty_id" name="difficulty">
+        <option value="All">All</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select>
+    <a>  Category:</a>
+    <select id="category_id" name="category">
+        <option value="All">All</option>
+        <option value="Animal">Animal</option>
+        <option value="Flower">Flower</option>
+        <option value="Star">Star</option>
+        <option value="Vehicles">Vehicles</option>
+        <option value="Others">Others</option>
+    </select>
+    <a>  Type:</a>
+    <select id="type_id" name="type">
+        <option value="All">All</option>
+        <option value="Common">Common</option>
+        <option value="Action">Action</option>
+        <option value="Modular">Modular</option>
+        <option value="WetFolding">Wet-Folding</option>
+        <option value="Pureland">Pureland</option>
+        <option value="Tessellation">Tessellations</option>
+        <option value="Kirigami">Kirigami</option>
+        <option value="StripFolding">Strip Folding</option>
+    </select>
+    <button onclick="loadOrigamis()">Search</button>
+    <div id="list">
+        <ul id="results"></ul>
+    </div>
+</div>
+</body>
+</html>

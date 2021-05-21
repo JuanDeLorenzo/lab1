@@ -9,7 +9,10 @@
         </description>
 
         <class>austral.ing.lab1.model.User</class>
-        <class>austral.ing.lab1.model.Address</class>
+        <class>austral.ing.lab1.model.Origami</class>
+        <class>austral.ing.lab1.model.Image</class>
+
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
@@ -19,6 +22,7 @@
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
+
         </properties>
 
     </persistence-unit>
